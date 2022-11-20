@@ -9,7 +9,7 @@ namespace Lab5_4
         {
             Console.Write("Количество чисел в массиве: ");
             int count = int.Parse(Console.ReadLine());
-            double[] numbers = new double [count];
+            double[] numbers = new double[count];
 
             Console.Write($"Введите массив из {count} элементов через пробел: ");
             string[] str = Console.ReadLine().Split(' ');
@@ -32,19 +32,19 @@ namespace Lab5_4
                     newNumbers[i] = RoundToHundredths(numbers[i]);
                 }
             }
-            Console.WriteLine("\nПервый массив: {0}", String.Join(" ", numbers));
-            Console.WriteLine("\nВторой массив: {0}", String.Join(" ", newNumbers));
+            Console.WriteLine("\nВведенный массив: {0}", String.Join(" ", numbers));
+            Console.WriteLine("\nПолученный массив: {0}", String.Join(" ", newNumbers));
 
         }
 
         public static double RoundToHundredths(double a)
         {
             double result = Math.Round(a, 2);
+
             if (Convert.ToInt32(result) == result)
             {
                 return 0;
             }
-   
             else
             {
                 string[] subs = result.ToString().Split(',');
@@ -58,15 +58,17 @@ namespace Lab5_4
                     return int.Parse(subs[1]);
                 }
             }
-            
         }
 
         public static long CalculateFactorial(double fact)
         {
             double h1 = fact;
             long h2 = 1;
+
             if (fact == 0)
+            {
                 return 1;
+            }
             else
             {
                 for (int i = 1; i <= h1; i++)
@@ -74,9 +76,8 @@ namespace Lab5_4
                     h2 *= i;
                 }
             }
+
             return h2;
         }
-
-
     }
 }
